@@ -29,6 +29,11 @@ func getTotalCalories() -> [Int] {
     } ?? []
 }
 
-print("Max total calories \(getTotalCalories().max())")
+print("Max total calories \(String(describing: getTotalCalories().max()))")
 
+func getTopThreeElves() -> [Int] {
+    getTotalCalories().sorted { $0 > $1 }[..<3].map { $0 }
+}
+
+print("Total calories of top three \(getTopThreeElves().reduce(0, +))")
 
